@@ -34,7 +34,7 @@ Check if PV's are available
 ### Download the application template
 The sample application template can be downloaded from https://github.com/dineshsadasivam/nodejs-mongodb-sample/template/nodejs-mongodb.yaml 
 
-### Start deployment
+### Start deployment using the downloaded template
 ![alt text](https://raw.githubusercontent.com/dineshsadasivam/nodejs-mongodb-sample/master/pic/Import-yaml.png)
 
 
