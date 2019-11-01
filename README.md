@@ -3,6 +3,8 @@
 --------------------------------------------------
 ## This example will display a web page with current page hit count as stored in persistent database.
 
+This is a fork os the following github repository https://github.com/sclorg/nodejs-ex
+
 ### Create a New Project for the sample application deployment and set it as current project.
    
     $ oc new-project demoproject --display-name="Demo Project" --description="Project for demo purpose"
