@@ -1,15 +1,15 @@
 
 # Sample NodeJS application with MongoDB 
------------------
+--------------------------------------------------
+## This example will display a web page with current page hit count as stored in persistent database.
 
-This example will display a web page with current page hit count as stored in persistent database.
-
-Create a New Project for the sample application deployment and set it as current project.
+### Create a New Project for the sample application deployment and set it as current project.
    
     $ oc new-project demoproject --display-name="Demo Project" --description="Project for demo purpose"
     $ oc project demoproject
 
-The sample application is based on Node.JS:6 and mongodb:3.6, These container images are available in the redhat repository (registry.redhat.io). The default images in Docker do not support ppcle, hence manually pull the correct images and update into the openshift cluster repository.
+### Pull the container images
+The sample application is based on Node.JS:6 and mongodb:3.6. These container images are available in the redhat repository (registry.redhat.io). The default images in Docker do not support ppcle, hence manually pull the correct images and update into the openshift cluster repository.
 
  - Login to the openshift centralised repository
  
@@ -26,13 +26,17 @@ The sample application is based on Node.JS:6 and mongodb:3.6, These container im
        $ docker tag registry.redhat.io/rhscl/nodejs-6-rhel7 docker-registry.default.svc:5000/myproject/nodejs:6
        $ docker push docker-registry.default.svc:5000/myproject/nodejs:6
 
+### Ensure the pre-requisite Persistent Volumes of atleast 2GiB are available
+Check if PV's are available
 
-Download the template from https://github.com/dineshsadasivam/nodejs-mongodb-sample/template/nodejs-mongodb.yaml and start deployment
+       $ oc get pv
+
+### Download the application template
+The sample application template can be downloaded from https://github.com/dineshsadasivam/nodejs-mongodb-sample/template/nodejs-mongodb.yaml 
+
+### Start deployment
+![alt text](https://raw.githubusercontent.com/dineshsadasivam/nodejs-mongodb-sample/master/pic/Import-yaml.png)
 
 
-#### Create a new app from a template (method 2)
-
-We can create the the new app from the `nodejs.json` template by using the `-f` flag and pointing the tool at a path to the template file:
-
-        $ oc new-app -f /tmp/template/nodejs-mongodb.yaml
+![alt text](https://raw.githubusercontent.com/dineshsadasivam/nodejs-mongodb-sample/master/pic/App-Deploy.png)
 
